@@ -1,0 +1,88 @@
+<section *ngIf="details">
+
+    <div class="card w-100 mb-3">
+        <div class="card-body">
+            <h2 class="card-title text-center">
+                {{details?.user?.fristName}} {{details?.user?.lastName}}
+            </h2>
+            <div class="contianer">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <p class="card-text">
+                            <span class="text-decoration-underline fw-semibold fs-5">Email:</span>
+                            <a [href]="'mailto:'+ details?.user?.email"> {{details?.user?.email}}</a>
+                        </p>
+
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p class="card-text">
+                            <span class="text-decoration-underline fw-semibold fs-5">Address:</span>
+                            <span> {{details?.user?.address}}</span>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-3">
+        <div class="shadow order-table">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Arabic Title</th>
+                  <th scope="col">English Title</th>
+                  <th scope="col">quantaty</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Discount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of details?.products; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>
+                        <img [src]="item?.product?.img" alt="" width="50">
+                    </td>
+                    <td>
+                        <span [title]="item?.product?.title_ar" [ngClass]="{'long-text text-truncate': item?.product?.title_ar?.length > 30}">{{item?.product?.title_ar | slice:0 : 30}}</span>
+                    </td>
+                    <td>
+                        <span [title]="item?.product?.title_en" [ngClass]="{'long-text text-truncate': item?.product?.title_en?.length > 30}">{{item?.product?.title_en| slice:0 : 30}}</span>
+                    </td>
+                    <td>
+                        <span>{{item?.quantity }} </span>
+                    </td>
+                    <td>
+                        <span>{{item?.product?.price?.new *item.quantity| currency}}</span>
+                    </td>
+                    <td>
+                        <span>{{item?.product?.price?.discount | number}}%</span>
+                    </td>
+                </tr>
+
+              </tbody>
+              <tfoot>
+                <tr>
+                    <td></td>
+                    <th colspan="3" class="">
+                        <span>
+                            Total
+                        </span>
+                    </th>
+                    <th colspan="1" class="">
+                        <span>
+                            {{totalitems}}
+                        </span>
+                    </th>
+                    <td colspan="2" class="fw-bold">
+                        {{totalPrice | currency}}
+                    </td>
+                </tr>
+              </tfoot>
+            </table>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,39 @@
+<h2>Seller List</h2>
+<div class="scroll">
+    <table class="table custom-table ">
+        <thead>
+            <th class="order-th shadow">First Name</th>
+            <th class="order-th shadow">Status</th>
+            <th class="order-th shadow ">Email</th>
+            <th class="order-th shadow ">Category</th>
+            <td class="order-th shadow text-center " colspan="2">Actions</td>
+    
+    
+        </thead>
+        <tbody>
+    
+            <tr class="info" *ngFor="let seller of sellers">
+                <td>{{ seller.firstName }}</td>
+                <td>
+                    <span class="px-2 py-1 rounded"
+                        [ngClass]="{'text-white bg-success': seller.status === 'Active','text-dark bg-warning': seller.status === 'warning','text-dark bg-danger': seller.status === 'blocked'}">
+                        {{seller.status}}
+                    </span>
+                </td>
+                <td>{{ seller.email }}</td>
+                <td>{{ seller.category }}</td>
+                <td class="d-flex">
+                    <select class="form-select w-50 ms-5" [(ngModel)]="seller.status" (change)="changeStatus($event, seller._id)">
+                      <!-- <option >Change Status</option> -->
+                      <option value="Active">Active</option>
+                      <option value="blocked">Blocked</option>
+                      <option value="warning">Warning</option>
+                    </select>
+                    <i (click)="deleteSeller(seller._id)" class="fas fa-solid fa-trash ms-4" style="color: #b60c0c;"></i>
+                    <!-- <i class="fas fa-solid fa-user-slash ms-4" *ngIf="seller.status == 'warning'" (click)="changeStatus($event, seller._id, seller.status)"></i> -->
+                  </td>
+               
+            </tr>
+        </tbody>
+    </table>
+</div>

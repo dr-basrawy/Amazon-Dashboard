@@ -1,0 +1,144 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo img{
+    width: 103px;
+    height: 31px;
+    margin-top: 15px;
+}
+.card{
+    width: 24rem;
+    height: 22rem;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around; 
+    flex-direction: column;
+    border-radius: 4px;
+    margin: 20px auto 25px auto;
+}
+
+.card h1{
+    // font-weight: 50px;
+    font-size: 28px;
+}
+.card h5{
+    padding-top: .5rem;
+}
+
+.card input{
+    width: 20rem;
+    height: 1.7rem;
+    padding: 3px 7px;
+    margin-top: 3px;
+    background-color: #fff;
+    border: 1px solid #a6a6a6;
+    border-radius: 3px;
+}
+.card button{
+    width: 20rem;
+    height: 2rem;
+    margin-top: 15px;
+    background-color: #F7CA00;
+    border: 1px solid #F7CA00;
+    border-radius: 7px;
+}
+.card button:hover{
+    background-color: #cfab0c;
+    border: 1px solid #cfab0c;
+}
+.card p,.card p a{
+    font-size: 12px;
+    line-height: 1.5;
+}
+a{
+    text-decoration: none;
+    color: #0066c0;
+}
+.card a{
+    margin-top: 2%;
+    font-size: 13px;
+}
+.icon::before{
+    display: inline-block;
+    content: "";
+    border-top: .3rem solid transparent;
+    border-left: .3rem solid #949494;
+    border-bottom: .3rem solid transparent;
+    margin-right: .5rem;
+}
+.breck p{
+    line-height: 1;
+    font-size: 12px;
+    color: #767676;
+    font-weight: 400;
+    position: relative;
+    display: inline-block;
+    padding: 0 8px 7px;
+}
+.breck, .btn{
+    display: flex;
+    justify-content: center;
+}
+.breck::before,.breck::after{
+    content: "";
+    position: relative;
+    top:5px;
+    display: inline-block;
+    width: 120px;
+    border-top: 1px solid #e7e7e7;
+}
+.btn button{
+    width: 23rem;
+    height:2rem;
+    margin: 15px auto;
+    border: 1px solid #e6e6e6;
+    background-color: #fff;
+    border-radius: 8px;
+}
+.btn button:hover{
+    background-color: #ededed;
+}
+footer .links{
+    display: flex;
+    justify-content: space-between;
+    width: 15rem;
+    margin: 2rem auto .4rem auto;
+}
+footer .links a{
+    font-size: 12px;
+}
+ a:hover{
+    color: rgb(188, 95, 34);
+    text-decoration: underline;
+}
+footer::before{
+    content: "";
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    height: 3rem;
+    margin-top: -35px;
+    border-top: 1px solid transparent;
+    box-shadow: 0 10px 15px -20px #333;
+}
+footer p{
+    font-size: 11px;
+    color:#555;
+    text-align: center;
+}
+
+.alarm{
+    font-size: small;
+    color: red;
+}
+.has-error .form-control {
+    border-color: red;
+  }

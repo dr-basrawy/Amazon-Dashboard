@@ -1,0 +1,16 @@
+<div class="title">Sales by Years</div>
+<div class="chart-container">
+    <canvas
+  baseChart
+  class="chart"
+  [data]="barChartData"
+  [options]="barChartOptions"
+  [type]="barChartType"
+  (chartHover)="chartHovered($event)"
+  (chartClick)="chartClicked($event)"
+>
+</canvas>
+<button mat-button mat-raised-button color="primary" (click)="randomize()" class="btn btn-light">
+  Update
+</button>
+ </div>

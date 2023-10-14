@@ -1,0 +1,113 @@
+<div class="py-5 bg-light container-fluid d-flex flex-column justify-content-center align-items-center">
+  <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" class="w-50" >
+    <div class="input-group mb-3">
+      <span class="input-group-text">nameEn</span>
+      <input *ngIf="!(category.name_en) else nameEn " type="text" class="form-control" formControlName="name_en" name="nameEn">
+      <ng-template #nameEn>
+        <input type="text" class="form-control" formControlName="name_en" name="nameEn" value={{category.name_en}}>
+      </ng-template>
+      <span
+        class="text-danger"
+        *ngIf="
+        name_en?.hasError('pattern') &&
+          (name_en?.touched || name_en?.dirty)
+        "
+      > name is Required and at least the first four characters must be string
+    </span>
+    </div>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" name="nameAr" formControlName="name_ar" *ngIf="!(category.name_ar) else nameAr ">
+      <ng-template #nameAr>
+        <input  type="text" class="form-control" formControlName="name_ar" name="name_ar" value={{category.name_ar}}>
+      </ng-template>
+      <span class="input-group-text">الاسم بالعربى</span>
+      <span
+        class="text-danger"
+        *ngIf="
+        name_ar?.hasError('pattern') &&
+          (name_ar?.touched || name_ar?.dirty)
+        "
+      > name is Required and at least the first four characters must be string
+    </span>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">products Id</span>
+      <input *ngIf="(!category.products) else product" type="text" class="form-control" name="products" formControlName="products">
+      <ng-template #product>
+        <input  type="text" class="form-control" formControlName="products" name="products" value={{category.products}}>
+      </ng-template>
+      <span
+      class="text-danger"
+      *ngIf="
+      products?.hasError('pattern') &&
+        (products?.touched || products?.dirty)
+      "
+    > products must be at least 10 characters or numbers and end with ,
+  </span>
+    </div>
+    <input type="submit" value="save Category" class="btn btn-success mx-auto">
+  </form>
+
+    <div  dir="ltr" *ngIf="language == 'en' else Arabic" class="projects p-20 bg-white rad-10 m-20 ">
+      <h2 class="mt-0 mb-20">Categories List</h2>
+      <div class="responsive-table">
+        <table class="fs-15 w-full">
+          <thead (dblclick)="changLanguage()">
+            <tr>
+              <td>#</td>
+              <td>_id</td>
+              <td>Name_en</td>
+              <td>Products</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of categoryList">
+              <td class="d-flex flex-column"><i (click)="update(item)" class="fas fa-solid fa-pen fs-4 text-success"></i>
+                <i (click)="delete(item)"  class="fas fa-solid fa-trash fs-4 text-danger"></i>
+              </td>
+              <td>{{ item._id }}</td>
+              <td>{{ item.name_en }}</td>
+              <td>
+                <ng-container *ngFor="let productId of item.products">
+                  <span>{{ productId }}</span>
+
+                  <br/>
+                </ng-container>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <ng-template #Arabic>
+      <div  dir="rtl" class="projects p-20 bg-white rad-10 m-20 ">
+        <h2 class="mt-0 mb-20">قائمة التصنيفات</h2>
+        <div class="responsive-table">
+          <table class="fs-15 w-full">
+            <thead (dblclick)="changLanguage()">
+              <tr>
+                <td>#</td>
+                <td>id</td>
+                <td>الاسم</td>
+                <td>المنتجات</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of categoryList">
+                <td class="d-flex flex-column"><i (click)="update(item)" class="fas fa-solid fa-pen fs-4 text-success"></i>
+                  <i (click)="delete(item)"  class="fas fa-solid fa-trash fs-4 text-danger"></i>
+                </td>
+                <td>{{ item._id }}</td>
+                <td>{{ item.name_ar }}</td>
+                <td>
+                  <ng-container *ngFor="let productId of item.products">
+                    <span>{{ productId }}</span><br/>
+                  </ng-container>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </ng-template>
+  </div>

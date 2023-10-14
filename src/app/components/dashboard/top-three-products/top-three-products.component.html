@@ -1,0 +1,14 @@
+<div class="title">Monthly Sales</div>
+<div class="chart-container">
+
+    <canvas
+    baseChart
+    class="chart"
+    [data]="lineChartData"
+    [options]="lineChartOptions"
+    [type]="lineChartType"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"
+  ></canvas>
+
+</div>

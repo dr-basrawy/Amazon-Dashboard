@@ -1,0 +1,56 @@
+<div class="top-section ">
+    <div class="widget-container row d-flex">
+        <div class="widget green col-lg-3 col-md-5">
+          <div class="icon">
+            <fa-icon [icon]="faLocation"></fa-icon>
+          </div>
+          <div class="value">
+            <div class="top">{{countSeller}}</div>
+            <div class="bottom">Sellers</div>
+          </div>
+        </div>
+        <div class="widget yellow col-lg-3 col-md-5">
+          <div class="icon">
+            <fa-icon [icon]="faShop"></fa-icon>
+          </div>
+          <div class="value">
+            <div class="top">{{countProduct}}</div>
+            <div class="bottom">Products</div>
+          </div>
+        </div>
+        <div class="widget red col-lg-3 col-md-5">
+          <div class="icon">
+            <fa-icon [icon]="faBoxes"></fa-icon>
+          </div>
+          <div class="value">
+            <div class="top">{{countOrders}}</div>
+            <div class="bottom">Orders</div>
+          </div>
+        </div>
+        <div class="widget blue col-lg-3 col-md-5">
+          <div class="icon">
+            <fa-icon [icon]="faMoneyBill"></fa-icon>
+          </div> 
+          <div class="value">
+            <div class="top">{{countReviws}}</div>
+            <div class="bottom">Total Reviews</div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="middle-section d-flex flex-lg-row flex-column">
+            <div class="widget left">
+              <app-sales-by-month></app-sales-by-month>
+            </div>
+            <div class="widget right">
+              <app-sales-by-category></app-sales-by-category>
+            </div>
+          </div>
+    <div class="bottom-section d-flex flex-lg-row flex-column w-100">
+        <div class="widget left w-50">
+          <app-last-few-transactions></app-last-few-transactions>
+        </div>
+        <div class="widget right w-50">
+            <app-top-three-products></app-top-three-products>
+          </div>
+      </div>

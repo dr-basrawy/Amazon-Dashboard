@@ -1,0 +1,38 @@
+<h1>orders</h1>
+<div class=" order-table shadow ">
+  <table class=" table  ">
+    <thead>
+
+      <th class="order-th shadow">order</th>
+      <th class="order-th shadow">date</th>
+      <th class="order-th shadow">items</th>
+      <th class="order-th shadow">Ship to</th>
+      <th class="order-th shadow">Status</th>
+      <th class="order-th shadow">Total</th>
+      <th class="order-th shadow ">Actions</th>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let order of orders ;index as i" class="order-tr-light ">
+        <td class="order-td ">{{order.user.fristName}} {{order.user.lastName}}</td>
+        <td class="order-td">{{order.createdAt |date}}</td>
+        <td class="order-td ">{{items(order.products)}}</td>
+        <td class="order-td">{{order.user.address}}</td>
+        <td class="order-td" >
+          <span class="px-2 py-1 rounded" [ngClass]="{'text-white bg-success': order.status === 'completed','text-dark bg-warning': order.status === 'process'}">
+            {{order.status}}
+            
+          </span>
+        </td>
+        <td class="order-td">
+          {{totalprice(order.products)|currency}}
+        </td>
+        <td class="order-td text-start ">
+          <button (click)="details(order._id)" class="btn btn-dark">show details</button>
+          <button class="btn btn-danger mx-3 my-2 my-md-0 " (click)="delete(order._id)">Delete</button>
+          <button class="btn btn-info " *ngIf="order.status == 'process' " (click)="updateById(order._id)">completed</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

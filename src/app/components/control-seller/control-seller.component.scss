@@ -1,0 +1,55 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+
+.order-table{
+    width: 100%;
+    // min-width: 500px ;
+    background-color: white;
+
+}
+.order-th{
+    background-color: rgb(38,50,56);
+    padding: 10px;
+    // border-radius: 3px;
+    color: rgb(255,255,255);
+  
+
+
+}
+.order-tr-light{
+    background-color: rgba(128, 128, 128, 0.096);
+}
+.order-tr-dark{
+    background-color: rgba(128, 128, 128, 0.459);
+
+}
+.order-td{
+
+    padding: 10px;
+
+
+}
+.scroll{
+    white-space: nowrap;
+    overflow: auto;
+    width: 100%;
+}
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-table th {
+    padding: 12px 15px;
+    background-color: #e9ecef;
+    border-top: 2px solid #dee2e6;
+    border-bottom: 2px solid #dee2e6;
+    text-align: left;
+    font-weight: 600;
+    color: #212529;
+  }
+  
+
+  

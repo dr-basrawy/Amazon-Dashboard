@@ -1,0 +1,14 @@
+.long-text{
+    display: inline-block;
+    max-width: 15.625rem;
+}
+
+.order-table{
+    width: 100%;
+    // max-width:500px ;
+    white-space: nowrap;
+    overflow: auto;
+
+    // background-color: white;
+
+}

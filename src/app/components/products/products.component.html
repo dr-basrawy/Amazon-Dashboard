@@ -1,0 +1,450 @@
+<div class="container-fluid bg-light" style="background-color: white">
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseOne"
+          aria-expanded="false"
+          aria-controls="collapseOne"
+        >
+          Add Product
+        </button>
+      </h2>
+      <div
+        id="collapseOne"
+        class="accordion-collapse collapse show"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          <form
+            [formGroup]="productForm"
+            (ngSubmit)="onSubmit()"
+            class="w-50 mx-auto border px-3 p-4"
+          >
+            <div class="mb-3">
+              <label for="Quantity" class="form-label">Quantity </label>
+              <input
+                type="text"
+                class="form-control"
+                id="Quantity"
+                name="Quantity"
+                placeholder="Quantity"
+                formControlName="quantity"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  quantity?.hasError('pattern') &&
+                  (quantity?.touched || quantity?.dirty)
+                "
+              >
+                Quantity must be Number
+              </span>
+            </div>
+            <div class="mb-3">
+              <label for="title_en" class="form-label">Title(en)</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title_en"
+                name="title_en"
+                placeholder="title_en"
+                formControlName="title_en"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  title_en?.hasError('pattern') &&
+                  ( title_en?.touched || title_en?.dirty )
+                "
+              >
+                Title is Required and at least the first four characters must be
+                string
+              </span>
+            </div>
+            <div class="mb-3">
+              <label for="title_ar" class="form-label">Title(ar)</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title_ar"
+                placeholder="title(ar)"
+                name="title_ar"
+                formControlName="title_ar"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  title_ar?.hasError('pattern') &&
+                  (title_ar?.touched || title_ar?.dirty)
+                "
+              >
+                Title is Required and at least the first four characters must be
+                string
+              </span>
+            </div>
+            <div class="mb-3">
+              <label for="img" class="form-label">Img</label>
+              <input
+                type="text"
+                class="form-control"
+                id="img"
+                placeholder="img"
+                name="img"
+                formControlName="img"
+              />
+              <span
+                class="text-danger"
+                *ngIf="img?.hasError('pattern') && (img?.touched || img?.dirty)"
+              >
+                Image is Required
+              </span>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="oldPrice"
+                  placeholder="Old Price"
+                  aria-label="Old Price"
+                  formControlName="oldPrice"
+                />
+                <span
+                  class="text-danger"
+                  *ngIf="
+                    oldPrice?.hasError('pattern') &&
+                    (oldPrice?.touched || oldPrice?.dirty)
+                  "
+                >
+                  Old Price must be Number.
+                </span>
+              </div>
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="newPrice"
+                  placeholder="New Price"
+                  aria-label="New Price"
+                  formControlName="newPrice"
+                />
+                <span
+                  class="text-danger"
+                  *ngIf="
+                    newPrice?.hasError('pattern') &&
+                    (newPrice?.touched || newPrice?.dirty)
+                  "
+                >
+                  The New Price is Required and must be Number
+                </span>
+              </div>
+            </div>
+            <div class="row my-3">
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="discount"
+                  placeholder="discount"
+                  aria-label="discount"
+                  formControlName="discount"
+                />
+                <span
+                  class="text-danger"
+                  *ngIf="
+                    discount?.hasError('pattern') &&
+                    (discount?.touched || discount?.dirty)
+                  "
+                >
+                  The discount must be Number
+                </span>
+              </div>
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="shipping"
+                  placeholder="shipping"
+                  aria-label="shipping"
+                  formControlName="shipping"
+                />
+                <span
+                  class="text-danger"
+                  *ngIf="
+                    shipping?.hasError('pattern') &&
+                    (shipping?.touched || shipping?.dirty)
+                  "
+                >
+                  The shipping Price must be Number
+                </span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="info_en" class="form-label">Info(en)</label>
+              <input
+                type="text"
+                name="info_en"
+                class="form-control"
+                id="info_en"
+                placeholder="info(en)"
+                formControlName="info_en"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  info_en?.hasError('pattern') &&
+                  (info_en?.touched || info_en?.dirty)
+                "
+              >
+                The info_en must be string
+              </span>
+            </div>
+            <div class="mb-3">
+              <label for="info_ar" class="form-label">Info(ar)</label>
+              <input
+                type="text"
+                name="info_ar"
+                class="form-control"
+                id="info_ar"
+                placeholder="info(ar)"
+                formControlName="info_ar"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  info_ar?.hasError('pattern') &&
+                  (info_ar?.touched || info_ar?.dirty)
+                "
+              >
+                The info_ar must be string
+              </span>
+            </div>
+            <div class="mb-3">
+              <label for="aboutItem_en" class="form-label">aboutItem(en)</label>
+              <input
+                name="aboutItem_en"
+                type="text"
+                class="form-control"
+                id="aboutItem_en"
+                placeholder="aboutItem_en"
+                formControlName="aboutItem_en"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  aboutItem_en?.hasError('pattern') &&
+                  (aboutItem_en?.touched || aboutItem_en?.dirty)
+                "
+                >The aboutItem_en must be string and end with ,
+              </span>
+            </div>
+            <div class="mb-3">
+              <label for="aboutItem_ar" class="form-label">aboutItem(ar)</label>
+              <input
+                name="aboutItem_ar"
+                type="text"
+                class="form-control"
+                id="aboutItem_ar"
+                placeholder="aboutItem_ar"
+                formControlName="aboutItem_ar"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  aboutItem_ar?.hasError('pattern') &&
+                  (aboutItem_ar?.touched || aboutItem_ar?.dirty)
+                "
+                >The aboutItem_ar must be string and end with ,
+              </span>
+            </div>
+            <div class="mb-3 d-flex w-50 justify-content-between">
+              <label for="CategoryId" class="form-label">CategoryId</label>
+              <div class="dropdown" id="CategoryId" name="categoryId">
+                <a
+                  class="btn btn-success dropdown-toggle "
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  {{ checkedCategory }}
+                </a>
+
+                <ul class="dropdown-menu">
+                  <li *ngFor="let category of categoryList">
+                    <a
+                      style="cursor: pointer"
+                      class="dropdown-item"
+                      (click)="
+                        changeCategory(
+                          category.name_en,
+                          category.name_ar,
+                          category._id
+                        )
+                      "
+                    >
+                      {{ category.name_en }}</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center">
+              <input
+                type="submit"
+                value="SaveProduct"
+                class="btn btn-success mx-auto"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <div
+    dir="ltr"
+    *ngIf="language == 'en'; else arabic"
+    class="projects p-20 bg-white rad-10 m-20"
+  >
+    <span class="d-flex align-items-baseline">
+      <h2 class="mt-0 mb-20 me-1">Products List</h2>
+      <span
+        class="text-bg-success px-2 py-2 rounded language"
+        (click)="changLanguage()"
+        >English</span
+      >
+    </span>
+    <div class="responsive-table">
+      <table class="fs-15 w-full">
+        <thead (dblclick)="changLanguage()">
+          <tr>
+            <td>#</td>
+            <td>Quantity</td>
+            <td>_id</td>
+            <td>Img</td>
+            <td>title_en</td>
+            <td>Price</td>
+            <td>aboutItem_en</td>
+            <td>Category</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of productList">
+            <td>
+              <i
+                (click)="update(item)"
+                class="fas fa-solid fa-pen fs-4 text-success"
+              ></i
+              ><br />
+              <i
+                (click)="delete(item)"
+                class="fas fa-solid fa-trash fs-4 text-danger"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                type="button"
+              ></i>
+            </td>
+
+            <td>{{ item.quantity }}</td>
+            <td>{{ item._id }}</td>
+            <td>
+              <img
+                src="{{ item.img }}"
+                alt="img"
+                style="width: 100px; height: 100px"
+              />
+            </td>
+            <td>{{ item.title_en }}</td>
+            <td>
+              <span>old: {{ item.price.old ? item.price.old : "" }}</span
+              ><br />
+              <span>new: {{ item.price.new }}</span>
+            </td>
+
+            <td>
+              {{ item.aboutItem_en ? item.aboutItem_en : "" }}
+            </td>
+            <td>
+              <span> Id:{{ item.categoryId?._id }} </span><br />
+              <span> Name: {{ item.categoryId?.name_en }} </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <ng-template #arabic>
+    <div dir="rtl" class="projects p-20 bg-white rad-10 m-20">
+      <span class="d-flex align-items-baseline">
+        <h2 class="mt-0 mb-20 me-1">قائمة المنتجات</h2>
+        <span
+          class="text-bg-success px-2 py-2 rounded language"
+          (click)="changLanguage()"
+          >عربى</span
+        >
+      </span>
+      <div class="responsive-table">
+        <table class="fs-15 w-full">
+          <thead (dblclick)="changLanguage()">
+            <tr>
+              <td>#</td>
+              <td>الكمية</td>
+              <td>id</td>
+              <td>الصورة</td>
+              <td>الاسم</td>
+              <td>السعر</td>
+              <td>معلومات عن المنتج</td>
+              <td>القسم</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of productList">
+              <td>
+                <i
+                  (click)="update(item)"
+                  class="fas fa-solid fa-pen fs-4 text-success"
+                ></i
+                ><br />
+                <i
+                  (click)="delete(item)"
+                  class="fas fa-solid fa-trash fs-4 text-danger"
+                ></i>
+              </td>
+              <td>{{ item.quantity }}</td>
+              <td>{{ item._id }}</td>
+              <td>
+                <img
+                  src="{{ item.img }}"
+                  alt="img"
+                  style="width: 100px; height: 100px"
+                />
+              </td>
+              <td>{{ item.title_ar }}</td>
+              <td>
+                <span>القديم: {{ item.price.old ? item.price.old : "" }}</span
+                ><br />
+                <span>الجديد: {{ item.price.new }}</span>
+              </td>
+
+              <td>
+                {{ item.aboutItem_ar ? item.aboutItem_ar : "" }}
+              </td>
+              <td>
+                <span> Id:{{ item.categoryId?._id }} </span><br />
+                <span> الاسم: {{ item.categoryId?.name_ar }} </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </ng-template>
+</div>

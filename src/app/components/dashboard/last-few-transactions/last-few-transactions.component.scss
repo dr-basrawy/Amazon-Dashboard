@@ -1,0 +1,131 @@
+// .transactions {
+//     .transaction-wrapper {
+//       overflow: auto;
+//       height: 185px;
+//     }
+//     .title {
+//       padding: 20px;
+//       padding-bottom: 5px;
+//       text-align: center;
+//       color: #333333;
+//       font-size: 18px;
+//       font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica,
+//         sans-serif;
+//     }
+//     .transaction {
+//       display: flex;
+//       align-items: center;
+//       padding: 5px 20px;
+//       border-bottom: 1px solid #f0f0f0;
+//       .image {
+//         width: 55px;
+//         img {
+//           width: 45px;
+//           height: 45px;
+//           object-fit: cover;
+//         }
+//       }
+//       .title {
+//         padding: 10px;
+//         font-size: 16px;
+//         width: 190px;
+//       }
+//       .price {
+//         padding: 10px;
+//         font-size: 16px;
+//         width: 90px;
+//       }
+//       .shop-location {
+//         padding: 10px;
+//         font-size: 16px;
+//         width: 190px;
+//         .location {
+//           margin-top: 4px;
+//           font-size: 14px;
+//           color: grey;
+//         }
+//       }
+//       .status {
+//         padding: 10px;
+//         font-size: 15px;
+//         text-transform: uppercase;
+//         font-weight: bold;
+//         &.confirmed {
+//           color: #6920fb;
+//         }
+//         &.pending {
+//           color: #7e0505;;
+//         }
+//         &.shipped {
+//           color: #044342;
+//         }
+//       }
+//     }
+//   }
+
+.transactions {
+  // width: 100% !important;
+  .transaction-wrapper {
+    overflow: auto;
+    height: 11.5625rem;
+   
+  }
+  .title {
+    padding: 1.25rem;
+    padding-bottom: 0.3125rem;
+    text-align: center;
+    color: #333333;
+    font-size: 1.125rem;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+  }
+  .transaction {
+    display: flex;
+    align-items: center;
+    padding: 0.3125rem 1.25rem;
+    border-bottom: 1px solid #f0f0f0;
+ 
+  }
+  .image {
+    width: 3.4375rem;
+  }
+  img {
+    width: 2.8125rem;
+    height: 2.8125rem;
+    object-fit: cover;
+  }
+  .transaction .title {
+    padding: 0.625rem;
+    font-size: 1rem;
+    width: 11.875rem;
+  }
+  .transaction .price {
+    padding: 0.625rem;
+    font-size: 1rem;
+    width: 5.625rem;
+  }
+  .transaction .shop-location {
+    padding: 0.625rem;
+    font-size: 1rem;
+    width: 11.875rem;
+  }
+  .transaction .shop-location .location {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: grey;
+  }
+  .transaction .status {
+    padding: 0.625rem;
+    font-size: 0.9375rem;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .transaction .status.confirmed {
+    color: #6920fb;
+  }
+  .transaction .status.pending {
+    color: #7e0505;
+  }
+  .transaction .status.shipped {
+    color: #044342;
+  }
+}
